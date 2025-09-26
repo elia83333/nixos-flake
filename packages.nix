@@ -20,7 +20,8 @@
   gedit
   htop
   hexchat
-  wtf
+  cava
+  ncdu
   kdePackages.spectacle
   python3
   virt-manager
