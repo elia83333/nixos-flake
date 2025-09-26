@@ -63,8 +63,6 @@
     jack.enable = true;
     wireplumber.enable = true;
   };
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

@@ -83,8 +83,6 @@
   gh
   usbmuxd
   brightnessctl
-  kdePackages.sddm
-  catppuccin-sddm
   rpi-imager
   networkmanager
   hyprpicker
