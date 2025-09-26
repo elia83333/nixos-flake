@@ -20,7 +20,8 @@
   gedit
   htop
   hexchat
-  wtf
+  cava
+  cmatrix
   kdePackages.spectacle
   python3
   virt-manager
@@ -29,7 +30,6 @@
   spice-gtk
   spice-protocol
   libnotify
-  kdePackages.kmenuedit
   gcc
   vmware-workstation
   gnumake
@@ -91,5 +91,8 @@
   bluez
   swaynotificationcenter
   wlogout
+  xdg-desktop-portal
+  xdg-desktop-portal-gtk
+  xdg-desktop-portal-kde
   ];
 }
