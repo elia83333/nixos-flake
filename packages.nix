@@ -6,7 +6,6 @@
   neovim
   wget
   niri
-  gdm
   kitty
   waybar
   fuzzel
@@ -95,6 +94,6 @@
   xdg-desktop-portal
   xdg-desktop-portal-gtk
   swaylock
-
+  ly
   ];
 }
