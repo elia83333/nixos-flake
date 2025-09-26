@@ -95,5 +95,6 @@
   xdg-desktop-portal-gtk
   swaylock
   ly
+  nh
   ];
 }
