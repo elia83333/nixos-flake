@@ -90,5 +90,6 @@
   blueman
   bluez
   swaynotificationcenter
+  wlogout
   ];
 }
