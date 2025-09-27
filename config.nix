@@ -80,6 +80,7 @@
 # ╞═══════════════════════════════╡ Virt-Manager ╞═════════════════════════════════╡
 
   virtualisation.vmware.guest.enable = true;
+  virtualisation.vmware.host.enable = true;
 
   programs.virt-manager.enable = true;
   
