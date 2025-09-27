@@ -97,5 +97,6 @@
   swaylock
   ly
   nh
+  usbutils
   ];
 }
