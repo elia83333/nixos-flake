@@ -100,5 +100,7 @@
   usbutils
   chocolate-doom
   kdePackages.konsole
+  cifs-utils
+  feh
   ];
 }
