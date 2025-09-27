@@ -98,5 +98,6 @@
   ly
   nh
   usbutils
+  linuxPackages.kernelHeaders
   ];
 }
