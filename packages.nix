@@ -98,7 +98,6 @@
   ly
   nh
   usbutils
-  vmware-modules-workstation
   chocolate-doom
   ];
 }
