@@ -98,6 +98,7 @@
   ly
   nh
   usbutils
-  linuxPackages.kernelHeaders
+  vmware-modules-workstation
+  chocolate-doom
   ];
 }
