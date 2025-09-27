@@ -99,6 +99,6 @@
   nh
   usbutils
   chocolate-doom
-  konsole
+  kdePackages.konsole
   ];
 }
