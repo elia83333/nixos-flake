@@ -66,6 +66,12 @@
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  gtk.iconTheme = {
+    name = "Papirus";
+    package = pkgs.papirus-icon-theme;
+  };
+
+  services.displayManager.ly.enable = true;
 
 # ╞═══════════════════════════════╡ Bluetooth ╞═════════════════════════════════╡
 
