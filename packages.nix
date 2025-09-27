@@ -99,5 +99,6 @@
   nh
   usbutils
   chocolate-doom
+  konsole
   ];
 }
