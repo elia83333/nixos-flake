@@ -93,6 +93,7 @@
   wlogout
   xdg-desktop-portal
   xdg-desktop-portal-gtk
+  xdg-desktop-portal-wlr
   swaylock
   ly
   nh
