@@ -102,5 +102,6 @@
   kdePackages.konsole
   cifs-utils
   feh
+  eog
   ];
 }
