@@ -104,6 +104,7 @@
   feh
   eog
   nmap
-
+  7zip
+  unzip
   ];
 }
