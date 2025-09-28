@@ -103,5 +103,7 @@
   cifs-utils
   feh
   eog
+  nmap
+
   ];
 }
