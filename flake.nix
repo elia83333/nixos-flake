@@ -32,11 +32,10 @@
 
 # ╞═════════════════╡ Home Manager Configuration ╞═════════════════════════╡
     homeConfigurations.elia = home-manager.lib.homeManagerConfiguration {
-      inherit system;
 
 # ╞═══════════════════════════════╡ pkgs for HM ╞═════════════════════════════╡
       pkgs = import nixpkgs {
-        inherit system;
+        system = "x86_64-linux";
         config = { allowUnfree = true; };
       };
 
