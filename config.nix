@@ -52,8 +52,6 @@
 
 # ╞═══════════════════════════════╡ NixOS System ╞═════════════════════════════════╡
 
-  nixpkgs.config.allowUnfree = true;
-
   programs.niri.enable = true;
   services.pipewire = {
     enable = true;
