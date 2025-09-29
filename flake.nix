@@ -26,8 +26,6 @@
         ./config.nix
         ./packages.nix
 
-        home-manager.nixosModules.home-manager
-        { nixpkgs.config.allowUnfree = true; }
       ];
     };
   };
