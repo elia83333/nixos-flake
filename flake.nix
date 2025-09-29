@@ -17,13 +17,13 @@
     nixosConfigurations.iusenixbtw = nixpkgs.lib.nixosSystem {
       inherit system;
 
-# ╞═══════════════════════════════╡ pkgs ╞═════════════════════════════════╡
+# ╞═══════════════════════════════╡ pkgs ══════════════════════════════════╡
       pkgs = import nixpkgs {
         inherit system;
         config = { allowUnfree = true; };
       };
 
-# ╞═══════════════════════════════╡ Modules ╞═════════════════════════════════╡
+# ╞═══════════════════════════════╡ Modules ══════════════════════════════════╡
       modules = [
         ./config.nix
         ./packages.nix
@@ -33,17 +33,17 @@
 # ╞═════════════════╡ Home Manager Configuration ╞═════════════════════════╡
     homeConfigurations.elia = home-manager.lib.homeManagerConfiguration {
 
-# ╞═══════════════════════════════╡ pkgs for HM ╞═════════════════════════════╡
+# ╞═══════════════════════════════╡ pkgs for HM ══════════════════════════════╡
       pkgs = import nixpkgs {
         system = "x86_64-linux";
         config = { allowUnfree = true; };
       };
 
-# ╞═══════════════════════════════╡ Modules ╞═════════════════════════════════╡
-      modules = [ ./home/config.nix ];
-
-# ╞═══════════════════════════════╡ HM Settings ╞═════════════════════════════╡
-      home.stateVersion = "25.05";
+# ╞═══════════════════════════════╡ Modules ══════════════════════════════════╡
+      modules = [
+        ./home/config.nix
+        { home.stateVersion = "25.05"; }
+      ];
     };
   };
 }
