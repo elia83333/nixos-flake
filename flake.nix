@@ -41,7 +41,7 @@
 
 # ╞═══════════════════════════════╡ Modules ══════════════════════════════════╡
       modules = [
-        ./home/config.nix
+        ./fuckingFlakeStateVersion.nix
         { home.stateVersion = "25.05"; }
       ];
     };
