@@ -19,7 +19,6 @@
 
     system = "x86_64-linux";
     # var = "var";
-    config.allowUnfree = true;
 # ╞═══════════════════════════════╡ Modules ╞═════════════════════════════════╡
       
       modules = [
