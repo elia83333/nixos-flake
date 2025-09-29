@@ -30,8 +30,9 @@
       inherit system pkgs;
       modules = [ ./home/config.nix ];
 
-# ╞═══════════════════════════════╡ Home Manager State Version ╞═════════════╡
+# ╞═══════════════════════════════╡ Variables ╞═════════════════════════════╡
       home.stateVersion = "25.05";
+      allowUnfree = true;
     };
   };
 }
