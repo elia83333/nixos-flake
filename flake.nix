@@ -16,7 +16,9 @@
     nixosConfigurations.iusenixbtw = nixpkgs.lib.nixosSystem {
 
 # ╞═══════════════════════════════╡ Variables ╞═════════════════════════════════╡
-
+   
+   
+    system.stateVersion = "25.05";
     system = "x86_64-linux";
     # var = "var";
 # ╞═══════════════════════════════╡ Modules ╞═════════════════════════════════╡

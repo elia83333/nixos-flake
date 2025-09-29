@@ -1,6 +1,6 @@
 { config, pkgs, inputs, ... }:
 let
-  flakeConfig = import ../config.nix;
+  flakeConfig = import ../flake.nix;
   username = "elia";
 in
 {

@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   imports =
     [ 
@@ -53,7 +54,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  system.stateVersion = "25.05"; 
   programs.niri.enable = true;
   services.pipewire = {
     enable = true;
