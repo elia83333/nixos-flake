@@ -20,7 +20,7 @@
 # ╞═══════════════════════════════╡ pkgs ╞═════════════════════════════════╡
       pkgs = import nixpkgs {
         inherit system;
-        config = { allowUnfree = true; };  # fucking allowunfree i hope u die and rot in hell
+        config = { allowUnfree = true; };
       };
 
 # ╞═══════════════════════════════╡ Modules ╞═════════════════════════════════╡
@@ -37,7 +37,7 @@
 # ╞═══════════════════════════════╡ pkgs for HM ╞═════════════════════════════╡
       pkgs = import nixpkgs {
         inherit system;
-        config = { allowUnfree = true; };  # fucking allowunfree i hope u die and rot in hell
+        config = { allowUnfree = true; };
       };
 
 # ╞═══════════════════════════════╡ Modules ╞═════════════════════════════════╡
