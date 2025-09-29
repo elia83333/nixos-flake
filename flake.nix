@@ -17,6 +17,7 @@
 # ╞═════════════════╡ NixOS Host: iusenixbtw ╞═══════════════════════╡
     nixosConfigurations.iusenixbtw = nixpkgs.lib.nixosSystem {
       inherit system pkgs;
+      config = { allowUnfree = true; };
 
 # ╞═══════════════════════════════╡ Modules ╞═════════════════════════════════╡
       modules = [
@@ -27,12 +28,11 @@
 
 # ╞═════════════════╡ Home Manager Configuration ╞═════════════════════════╡
     homeConfigurations.elia = home-manager.lib.homeManagerConfiguration {
-      inherit system pkgs;
+      inherit system pkgs; # tf does this even do?? well if it works it works.
       modules = [ ./home/config.nix ];
 
-# ╞═══════════════════════════════╡ Variables ╞═════════════════════════════╡
+# ╞═══════════════════════════════╡ HM stuff ╞═════════════════════════════╡
       home.stateVersion = "25.05";
-      allowUnfree = true;
     };
   };
 }
