@@ -106,5 +106,6 @@
   nmap
   p7zip
   unzip
+  home-manager
   ];
 }
