@@ -51,6 +51,8 @@
   };
 
 # ╞═══════════════════════════════╡ NixOS System ╞═════════════════════════════════╡
+  
+  system.stateVersion = "25.05";
 
   programs.niri.enable = true;
   services.pipewire = {
