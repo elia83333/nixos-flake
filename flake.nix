@@ -17,12 +17,14 @@
 # ╞═════════════════╡ NixOS Host: iusenixbtw ╞═══════════════════════╡
     nixosConfigurations.iusenixbtw = nixpkgs.lib.nixosSystem {
       inherit system pkgs;
-      config = { allowUnfree = true; };
 
 # ╞═══════════════════════════════╡ Modules ╞═════════════════════════════════╡
       modules = [
         ./config.nix
         ./packages.nix
+
+        { nixpkgs.config.allowUnfree = true; }
+
       ];
     };
 
