@@ -11,29 +11,39 @@
 # ╞═══════════════════════════════╡ Outputs ╞════════════════════════════════╡
   outputs = { self, nixpkgs, home-manager, ... }: let
     system = "x86_64-linux";
-    pkgs = import nixpkgs { inherit system; };
   in {
 
 # ╞═════════════════╡ NixOS Host: iusenixbtw ╞═══════════════════════╡
     nixosConfigurations.iusenixbtw = nixpkgs.lib.nixosSystem {
-      inherit system pkgs;
+      inherit system;
+
+# ╞═══════════════════════════════╡ pkgs ╞═════════════════════════════════╡
+      pkgs = import nixpkgs {
+        inherit system;
+        config = { allowUnfree = true; };  # fucking allowunfree i hope u die and rot in hell
+      };
 
 # ╞═══════════════════════════════╡ Modules ╞═════════════════════════════════╡
       modules = [
         ./config.nix
         ./packages.nix
-
-        { nixpkgs.config.allowUnfree = true; }
-
       ];
     };
 
 # ╞═════════════════╡ Home Manager Configuration ╞═════════════════════════╡
     homeConfigurations.elia = home-manager.lib.homeManagerConfiguration {
-      inherit system pkgs; # tf does this even do?? well if it works it works.
+      inherit system;
+
+# ╞═══════════════════════════════╡ pkgs for HM ╞═════════════════════════════╡
+      pkgs = import nixpkgs {
+        inherit system;
+        config = { allowUnfree = true; };  # fucking allowunfree i hope u die and rot in hell
+      };
+
+# ╞═══════════════════════════════╡ Modules ╞═════════════════════════════════╡
       modules = [ ./home/config.nix ];
 
-# ╞═══════════════════════════════╡ HM stuff ╞═════════════════════════════╡
+# ╞═══════════════════════════════╡ HM Settings ╞═════════════════════════════╡
       home.stateVersion = "25.05";
     };
   };
