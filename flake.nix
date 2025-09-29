@@ -19,12 +19,15 @@
 
     system = "x86_64-linux";
     # var = "var";
-
+    config.allowUnfree = true;
 # ╞═══════════════════════════════╡ Modules ╞═════════════════════════════════╡
       
       modules = [
         ./config.nix
         ./packages.nix
+
+        home-manager.nixosModules.home-manager
+        { nixpkgs.config.allowUnfree = true; }
       ];
     };
   };
