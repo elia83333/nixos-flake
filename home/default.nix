@@ -1,6 +1,6 @@
 { config, pkgs, inputs, ... }:
-
 let
+  flakeConfig = import ../fuckingFlakeStateVersion.nix;
   username = "elia";
 in {
   imports = [
@@ -11,5 +11,6 @@ in {
 
   home.username = username;
   home.homeDirectory = "/home/" + username;
+  home.stateVersion = flakeConfig.stateVersion;
 }
 

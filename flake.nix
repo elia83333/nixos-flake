@@ -28,7 +28,6 @@
       };
       modules = [
         ./home/default.nix
-        ./fuckingFlakeStateVersion.nix
       ];
     };
   };
