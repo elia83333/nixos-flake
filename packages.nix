@@ -109,5 +109,6 @@
   home-manager
   spicetify-cli
   stremio
+  minecraft
   ];
 }
