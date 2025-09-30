@@ -24,7 +24,7 @@ in {
       name = "Papirus";
     };
     font = {
-      name = "Dejavu Sans Mono";
+      name = "IBM Plex Sans Var";
     };
   };
   home.pointerCursor = {
