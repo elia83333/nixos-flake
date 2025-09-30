@@ -108,5 +108,6 @@
   unzip
   home-manager
   spicetify-cli
+  stremio
   ];
 }
