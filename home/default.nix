@@ -5,6 +5,13 @@ let
 in {
   imports = [
     # ./configs/folder/file
+    ./configs/gtk3/default.nix
+    ./configs/gtk4/default.nix
+    ./configs/kitty/default.nix
+    ./configs/fuzzel/default.nix
+    ./configs/waybar/default.nix
+    ./configs/swaylock/default.nix
+    ./configs/fastfetch/default.nix
   ];
 
   programs.home-manager.enable = true;
@@ -33,5 +40,6 @@ in {
     name = "Bibata-Modern";
     size = 16;
   };
+  xdg.icons.enable = true;
 }
 
