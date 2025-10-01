@@ -53,7 +53,6 @@
 # ╞═══════════════════════════════╡ NixOS System ╞═════════════════════════════════╡
   
   system.stateVersion = "25.05";
-  nixpkgs.config.allowBroken = true;
 
   programs.niri.enable = true;
   services.pipewire = {
