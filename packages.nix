@@ -110,5 +110,6 @@
   spicetify-cli
   stremio
   minecraft
+  protonvpn-gui
   ];
 }
