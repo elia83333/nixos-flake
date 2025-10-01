@@ -1,2 +1,5 @@
-home.file.".config/fastfetch/config.jsonc".source = ./config.jsonc;
+{ config, pkgs, ... }:
 
+{
+  home.file.".config/fastfetch/config.jsonc".source = ./config.jsonc;
+}

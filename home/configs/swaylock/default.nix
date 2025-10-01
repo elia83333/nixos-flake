@@ -1,1 +1,5 @@
-home.file.".config/swaylock/mocha.conf".source = ./mocha.conf;
+{ config, pkgs, ... }:
+
+{
+  home.file.".config/swaylock/mocha.conf".source = ./mocha.conf;
+}

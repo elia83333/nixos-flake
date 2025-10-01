@@ -1,2 +1,6 @@
-home.file.".config/kitty/current-theme.conf".source = ./current-theme.conf;
-home.file.".config/kitty/kitty.conf".source = ./kitty.conf;
+{ config, pkgs, ... }:
+
+{
+  home.file.".config/kitty/current-theme.conf".source = ./current-theme.conf;
+  home.file.".config/kitty/kitty.conf".source = ./kitty.conf;
+}
