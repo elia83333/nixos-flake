@@ -67,6 +67,8 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   services.displayManager.ly.enable = true;
+  
+  xdg.icons.enable = true;
 
 # ╞═══════════════════════════════╡ Bluetooth ╞═════════════════════════════════╡
 

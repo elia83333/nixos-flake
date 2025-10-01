@@ -40,6 +40,5 @@ in {
     name = "Bibata-Modern";
     size = 16;
   };
-  xdg.icons.enable = true;
 }
 
