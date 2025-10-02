@@ -111,5 +111,6 @@
   stremio
   minecraft
   protonvpn-gui
+  xclicker
   ];
 }
