@@ -23,13 +23,11 @@
   ncdu
   kdePackages.spectacle
   python3
-  virt-manager
   qemu
   virt-manager
   spice-gtk
   spice-protocol
   libnotify
-  kdePackages.kmenuedit
   gcc
   vmware-workstation
   gnumake
@@ -58,11 +56,9 @@
   catppuccin-papirus-folders
   papirus-icon-theme
   catppuccin
-  catppuccin-sddm
-  catppuccin-grub
   catppuccin-qt5ct
   catppuccin-gtk
-  vscodium
+  vscode
   vsce
   figlet
   cowsay
