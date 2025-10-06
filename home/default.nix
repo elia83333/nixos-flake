@@ -5,8 +5,6 @@ let
 in {
   imports = [
     # ./configs/folder/file
-    ./configs/gtk3/default.nix
-    ./configs/gtk4/default.nix
     ./configs/kitty/default.nix
     ./configs/fuzzel/default.nix
     ./configs/waybar/default.nix
@@ -40,5 +38,13 @@ in {
     name = "Bibata-Modern";
     size = 16;
   };
+  gtk.cursorTheme.package = pkgs.bibata-cursors;
+  gtk.cursorTheme.name = "Bibata-Modern";
+  gtk.cursorTheme.size = 1;
+  home.pointerCursor.package = pkgs.bibata-cursors;
+  home.pointerCursor.name = "Bibata-Modern";
+  home.pointerCursor.size = 1;
+  home.pointerCursor.x11.enable = true;
+  home.pointerCursor.x11.defaultCursor = "Simp1e-Nord-Dark";
 }
 
