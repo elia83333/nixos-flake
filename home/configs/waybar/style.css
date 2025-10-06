@@ -1,0 +1,152 @@
+@import url('./mocha.css');
+
+* {
+    font-size:25px;
+    font-family: "Dejavu Sans Mono";
+}
+window#waybar {
+    border-radius: 8px;
+    background: alpha(@crust, 0.99999);  /* semi-transparent bar */
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+tooltip {
+    background:@base;
+    color: @subtext1;
+}
+#clock:hover, #custom-pacman:hover, #custom-notification:hover,
+#bluetooth:hover, #network:hover, #battery:hover,
+#cpu:hover, #memory:hover, #temperature:hover {
+    transition: all .3s ease;
+    color:@blue;
+}
+#custom-notification {
+    padding: 0px 15px 0px 20px;
+    transition: all .3s ease;
+    color:@subtext1;
+    font-size: 30px;
+}
+#clock{
+    padding: 0px 5px;
+    color:@subtext1;
+    transition: all .3s ease;
+    font-size: 25px;
+}
+#workspaces {
+    padding: 7px 5px;
+}
+#workspaces button {
+    all:unset;
+    padding: 0px 5px;
+    color: alpha(@blue,.4);
+    transition: all .2s ease;
+}
+#workspaces button:hover {
+    color:rgba(0,0,0,0);
+    border: none;
+    text-shadow: 0px 0px 1.5px rgba(0, 0, 0, .5);
+    transition: all 1s ease;
+}
+#workspaces button.active {
+    color: @blue;
+    border: none;
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
+}
+#workspaces button.empty {
+    color: rgba(0,0,0,0);
+    border: none;
+    text-shadow: 0px 0px 1.5px rgba(0, 0, 0, .2);
+}
+#workspaces button.empty:hover {
+    color: rgba(0,0,0,0);
+    border: none;
+    text-shadow: 0px 0px 1.5px rgba(0, 0, 0, .5);
+    transition: all 1s ease;
+}
+#workspaces button.empty.active {
+    color: @blue;
+    border: none;
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
+}
+#bluetooth{
+    padding: 0px 5px;
+    transition: all .3s ease;
+    color:@subtext1;
+}
+#network{
+    padding: 0px 5px;
+    transition: all .3s ease;
+    color:@subtext1;
+}
+#battery{
+    padding: 0px 20px 0px 0px;
+    transition: all .3s ease;
+    color:@subtext1;
+}
+#battery.charging {
+    color: @green;
+}
+#battery.warning:not(.charging) {
+    color: @yellow;
+}
+#battery.critical:not(.charging) {
+    color: @red;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+#group-expand{
+    padding: 0px 5px;
+    transition: all .3s ease; 
+    color: @text
+}
+#custom-expand{
+    padding: 0px 5px;
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, .7);
+    transition: all .3s ease; 
+    color: @text
+}
+#custom-expand:hover{
+    color: @blue;
+    text-shadow: 0px 0px 2px rgba(255, 255, 255, .5);
+    color: @text
+}
+#custom-colorpicker{
+    padding: 0px 15px;
+    color: @text
+}
+#memory,#temperature{
+    padding: 0px 5px;
+    transition: all .3s ease; 
+    color:@subtext1;
+}
+#cpu{
+    padding: 0px 12px;
+    transition: all .3s ease; 
+    color:@subtext1;
+}
+
+#custom-endpoint{
+    color:@subtext1;
+    text-shadow: 0px 0px 1.5px rgba(0, 0, 0, 1);
+    padding: 0px 5px;
+}
+#custom-endpoint1{
+    color:@subtext1;
+    text-shadow: 0px 0px 1.5px rgba(0, 0, 0, 1);
+    padding: 0px 4px;
+}
+#tray{
+    padding: 0px 5px;
+    transition: all .3s ease; 
+}
+#tray menu * {
+    padding: 0px 5px;
+    transition: all .3s ease; 
+}
+#tray menu separator {
+    padding: 0px 5px;
+    transition: all .3s ease; 
+}
+
