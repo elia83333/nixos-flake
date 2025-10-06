@@ -67,6 +67,13 @@
 
   services.displayManager.ly.enable = true;
   
+  xdg.portal.enable = true;
+  
+  xdg.portal.extraPortals = [
+    pkgs.xdg-desktop-portal-wlr
+    pkgs.xdg-desktop-portal-gtk
+  ];
+
   xdg.icons.enable = true;
 
 # ╞═══════════════════════════════╡ Bluetooth ╞═════════════════════════════════╡
