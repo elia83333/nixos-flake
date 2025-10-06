@@ -10,7 +10,6 @@ in {
     ./configs/waybar/default.nix
     ./configs/swaylock/default.nix
     ./configs/fastfetch/default.nix
-    ./configs/Xresources/default.nix  
   ];
 
 
