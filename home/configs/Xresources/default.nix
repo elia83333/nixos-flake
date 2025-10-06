@@ -1,5 +1,5 @@
 # configs/Xresources/default.nix
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   home.file.".Xresources" = lib.mkForce {
