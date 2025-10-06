@@ -21,13 +21,28 @@ in {
   
   gtk.font.name = "IBM Plex Sans Var";
 
-  gtk.cursorTheme.package = pkgs.bibata-cursors;
-  gtk.cursorTheme.name = "Bibata-Modern";
-  gtk.cursorTheme.size = 1;
-  home.pointerCursor.package = pkgs.bibata-cursors;
-  home.pointerCursor.name = "Bibata-Modern";
-  home.pointerCursor.size = 1;
-  home.pointerCursor.x11.enable = true;
-  home.pointerCursor.x11.defaultCursor = "Simp1e-Nord-Dark";
+  gtk = {
+    enable = true;
+    cursorTheme = {
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
+    };
+    gtk3.extraConfig = {
+      "gtk-cursor-theme-name" = "Bibata-Modern-Classic";
+    };
+    gtk4.extraConfig = {
+      Settings = ''
+      gtk-cursor-theme-name=Bibata-Modern-Classic
+      '';
+    };
+  };
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 16;
+  };
 }
 
