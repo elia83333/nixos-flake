@@ -18,25 +18,13 @@ in {
   home.homeDirectory = "/home/" + username;
   home.stateVersion = flakeConfig.stateVersion;
   
-  gtk = {
-    enable = true;
-    cursorTheme = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern";
-    };
-    iconTheme = {
-      package = pkgs.papirus-icon-theme;
-      name = "Papirus";
-    };
-    font = {
-      name = "IBM Plex Sans Var";
-    };
-  };
+  gtk.font.name = "IBM Plex Sans Var";
+
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern";
-    size = 16;
+    size = 14;
   };
   gtk.cursorTheme.package = pkgs.bibata-cursors;
   gtk.cursorTheme.name = "Bibata-Modern";
