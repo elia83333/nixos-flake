@@ -4,7 +4,7 @@ let
   username = "elia";
 in {
   imports = [
-    # ./configs/folder/file
+    # ./configs/folder/file.nix
     ./configs/kitty/default.nix
     ./configs/fuzzel/default.nix
     ./configs/waybar/default.nix
