@@ -20,7 +20,7 @@
       modules = [
         ./config.nix
         ./packages.nix
-        inputs.spicetify-nix.nixosModules.default;
+        inputs.spicetify-nix.nixosModules.default
       ];
     };
 
