@@ -25,8 +25,8 @@
 
       modules = [
         ./packages.nix
-        ./config.nix
         spicetify-nix.nixosModules.default
+        ./config.nix
       ];
     };
 
