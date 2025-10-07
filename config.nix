@@ -1,20 +1,25 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./hardware/hardware.nix ];
+  imports =
+    [ 
+      ./hardware/hardware.nix
+    ];
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelModules = ["kvm-amd"];
+  boot.kernelModules = ["kvm-amd" ]; 
 
-  # Networking
+  # Network & Hostname
   networking.hostName = "iusenixbtw";
   networking.networkmanager.enable = true;
 
   # Timezone & Keyboard
   time.timeZone = "Europe/Rome";
+
   i18n.defaultLocale = "en_US.UTF-8";
+
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "it_IT.UTF-8";
     LC_IDENTIFICATION = "it_IT.UTF-8";
@@ -26,25 +31,26 @@
     LC_TELEPHONE = "it_IT.UTF-8";
     LC_TIME = "it_IT.UTF-8";
   };
-  services.xserver.xkb = { layout = "it"; variant = "winkeys"; };
+  
+  services.xserver.xkb = {
+    layout = "it";
+    variant = "winkeys";
+  };
+
   console.keyMap = "it2";
 
   # Users
   users.users.elia = {
     isNormalUser = true;
+    description = "elia";
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" "qemu-libvirtd" "kvm" ];
+    packages = with pkgs; [];
   };
 
-  # Programs
+  # NixOS System
+  system.stateVersion = "25.05"; 
   programs.niri.enable = true;
-  programs.spicetify = {
-    enable = true;
-    # Use the extensions exposed by spicetify-nix module
-    enabledExtensions = [ config.spicetify.extensions.marketplace ];
-  };
-  programs.virt-manager.enable = true;
 
-  # Audio
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -52,19 +58,38 @@
     jack.enable = true;
     wireplumber.enable = true;
   };
+  
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  gtk.iconTheme = {
+    name = "Papirus";
+    package = pkgs.papirus-icon-theme;
+  };
+
+  # Spicetify fix applied
+  programs.spicetify = {
+    enable = true;
+    enabledExtensions = [ config.spicetify.extensions.marketplace ];
+  };
 
   # Bluetooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
-  # Fonts
-  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono dejavu_fonts ];
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    dejavu_fonts
+  ];
 
-  # Virtualisation
+  # Virt-Manager
   virtualisation.vmware.guest.enable = true;
+  programs.virt-manager.enable = true;
+  
   virtualisation.libvirtd.enable = true;
-  virtualisation.virtualbox.host.enable = false;
+  virtualisation.virtualbox.host.enable = false;  
+
   users.groups.libvirtd.members = ["elia"];
+
   virtualisation.spiceUSBRedirection.enable = true;
   services.spice-vdagentd.enable = true;
 
@@ -73,14 +98,13 @@
     enable = true;
     daemon.settings = {
       experimental = true;
-      default-address-pools = [{ base = "172.30.0.0/16"; size = 24; }];
+      default-address-pools = [
+        {
+          base = "172.30.0.0/16";
+          size = 24;
+        }
+      ];
     };
   };
-
-  # GTK
-  gtk.iconTheme = { name = "Papirus"; package = pkgs.papirus-icon-theme; };
-
-  # Nix
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
 
