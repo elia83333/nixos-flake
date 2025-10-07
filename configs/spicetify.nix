@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, spicetify-nix, ... }:
 
 {
   programs.spicetify = {
@@ -6,5 +6,4 @@
     enabledExtensions = [ spicetify-nix.extensions.marketplace ];
   };
 }
-
 
