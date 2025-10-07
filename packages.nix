@@ -97,16 +97,15 @@
   chocolate-doom
   kdePackages.konsole
   cifs-utils
-  feh
   eog
   nmap
   p7zip
   unzip
   home-manager
   spicetify-cli
-  stremio
   minecraft
   protonvpn-gui
   xclicker
+  limine
   ];
 }

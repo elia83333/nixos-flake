@@ -4,10 +4,15 @@
     [ 
       ./hardware/hardware.nix
     ];
+  modules = [
+    ./configs/limine.nix
+    
+  ];
 
 # ╞═══════════════════════════════╡ Bootloader ╞═════════════════════════════════╡
 
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.enable = false; # see ./configs/limine.nix
+
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelModules = ["kvm-amd" ]; 
 
