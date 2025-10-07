@@ -6,16 +6,16 @@
       ./hardware/hardware.nix
     ];
 
-  # Bootloader
+# ╞═══════════════════════════════╡ Bootloader ╞═════════════════════════════════╡
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelModules = ["kvm-amd" ]; 
 
-  # Network & Hostname
+# ╞═══════════════════════════════╡ Network & Hostname ╞═════════════════════════════════╡
   networking.hostName = "iusenixbtw";
   networking.networkmanager.enable = true;
 
-  # Timezone & Keyboard
+# ╞═══════════════════════════════╡ Timezone & Keyboard ╞═════════════════════════════════╡
   time.timeZone = "Europe/Rome";
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -39,7 +39,7 @@
 
   console.keyMap = "it2";
 
-  # Users
+# ╞═══════════════════════════════╡ Users ╞═════════════════════════════════╡
   users.users.elia = {
     isNormalUser = true;
     description = "elia";
@@ -47,10 +47,11 @@
     packages = with pkgs; [];
   };
 
-  # NixOS System
+# ╞═══════════════════════════════╡ NixOS System ╞═════════════════════════════════╡
+  nixpkgs.config.allowUnfree = true;
+
   system.stateVersion = "25.05"; 
   programs.niri.enable = true;
-
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -61,23 +62,27 @@
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  gtk.iconTheme = {
+    name = "Papirus";
+    package = pkgs.papirus-icon-theme;
+  };
 
   programs.spicetify = {
     enable = true;
     enabledExtensions = [ config.spicetify.extensions.marketplace ];
   };
 
-  # Bluetooth
+# ╞═══════════════════════════════╡ Bluetooth ╞═════════════════════════════════╡
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
-
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     dejavu_fonts
   ];
 
-  # Virt-Manager
+# ╞═══════════════════════════════╡ Virt-Manager ╞═════════════════════════════════╡
   virtualisation.vmware.guest.enable = true;
+
   programs.virt-manager.enable = true;
   
   virtualisation.libvirtd.enable = true;
@@ -88,7 +93,7 @@
   virtualisation.spiceUSBRedirection.enable = true;
   services.spice-vdagentd.enable = true;
 
-  # Docker
+# ╞═══════════════════════════════╡ Docker ╞═════════════════════════════════╡
   virtualisation.docker = {
     enable = true;
     daemon.settings = {
