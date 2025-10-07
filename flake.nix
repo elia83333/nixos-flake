@@ -7,7 +7,7 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, spicetify-nix, ... }:
+  outputs = { self, nixpkgs, spicetify-nix, home-manager, ... }:
   let
     system = "x86_64-linux";
   in
@@ -25,7 +25,7 @@
 
       modules = [
         ./packages.nix
-        spicetify-nix.nixosModules.default
+        spicetify-nix.nixosModules.default   # must be BEFORE config.nix
         ./config.nix
       ];
     };

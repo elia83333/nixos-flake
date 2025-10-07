@@ -48,6 +48,7 @@
   };
 
 # ╞═══════════════════════════════╡ NixOS System ╞═════════════════════════════════╡
+  nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "25.05"; 
   programs.niri.enable = true;
@@ -60,6 +61,11 @@
   };
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  gtk.iconTheme = {
+    name = "Papirus";
+    package = pkgs.papirus-icon-theme;
+  };
 
   programs.spicetify = {
     enable = true;
