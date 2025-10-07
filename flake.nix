@@ -6,7 +6,7 @@
     home-manager.url = "github:nix-community/home-manager/release-25.05";
   };
 
-  outputs = { self, nixpkgs, spicetify-nix, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, ... }:
   let
     system = "x86_64-linux";
   in
