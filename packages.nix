@@ -53,8 +53,6 @@
   avahi-compat
   tree
   bibata-cursors
-  catppuccin-papirus-folders
-  papirus-icon-theme
   catppuccin
   catppuccin-qt5ct
   catppuccin-gtk
