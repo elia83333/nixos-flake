@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     home-manager.url = "github:nix-community/home-manager/release-25.05";
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
   outputs = { self, nixpkgs, spicetify-nix, home-manager, ... }:
@@ -25,7 +24,6 @@
 
       modules = [
         ./packages.nix
-        spicetify-nix.nixosModules.default   # must be BEFORE config.nix
         ./config.nix
       ];
     };
@@ -37,7 +35,6 @@
       };
       modules = [
         ./home/default.nix
-        spicetify-nix.homeManagerModules.default
       ];
     };
   };

@@ -1,8 +1,4 @@
 { config, pkgs, ... }:
-let
-  spicePkgs = spicetify-nix.packages;
-
-in
 {
   imports =
     [ 
@@ -64,13 +60,6 @@ in
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  programs.spicetify = {
-    enable = true;
-    enabledExtensions = with spicePkgs.extensions; [
-       adblockify
-       marketplace 
-    ];
-  };
 
 # ╞═══════════════════════════════╡ Bluetooth ╞═════════════════════════════════╡
   hardware.bluetooth.enable = true;
