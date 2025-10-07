@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 let
-  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
+  spicePkgs = spicetify-nix.packages;
+
 in
 {
   imports =
