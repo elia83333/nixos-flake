@@ -105,5 +105,6 @@
   protonvpn-gui
   xclicker
   limine
+  zip
   ];
 }
