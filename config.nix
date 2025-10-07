@@ -61,12 +61,7 @@
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  gtk.iconTheme = {
-    name = "Papirus";
-    package = pkgs.papirus-icon-theme;
-  };
 
-  # Spicetify fix applied
   programs.spicetify = {
     enable = true;
     enabledExtensions = [ config.spicetify.extensions.marketplace ];
