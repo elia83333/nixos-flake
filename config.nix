@@ -1,27 +1,22 @@
-{ pkgs, ... }:
+{ config, pkgs, spicetify-nix, ... }:
+
 {
-  imports =
-    [ 
-      ./hardware/hardware.nix
-    ];
+  imports = [
+    ./hardware/hardware.nix
+  ];
 
-# ╞═══════════════════════════════╡ Bootloader ╞═════════════════════════════════╡
-
+  # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelModules = ["kvm-amd" ]; 
+  boot.kernelModules = ["kvm-amd"];
 
-# ╞═══════════════════════════════╡ Network & Hostname ╞═════════════════════════════════╡
-
+  # Network & Hostname
   networking.hostName = "iusenixbtw";
   networking.networkmanager.enable = true;
 
-# ╞═══════════════════════════════╡ Timezone & Keyboard ╞═════════════════════════════════╡
-
+  # Timezone & Keyboard
   time.timeZone = "Europe/Rome";
-
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "it_IT.UTF-8";
     LC_IDENTIFICATION = "it_IT.UTF-8";
@@ -33,16 +28,13 @@
     LC_TELEPHONE = "it_IT.UTF-8";
     LC_TIME = "it_IT.UTF-8";
   };
-  
   services.xserver.xkb = {
     layout = "it";
     variant = "winkeys";
   };
-
   console.keyMap = "it2";
 
-# ╞═══════════════════════════════╡ Users ╞═════════════════════════════════╡
-
+  # Users
   users.users.elia = {
     isNormalUser = true;
     description = "elia";
@@ -50,12 +42,12 @@
     packages = with pkgs; [];
   };
 
-# ╞═══════════════════════════════╡ NixOS System ╞═════════════════════════════════╡
-
+  # NixOS System
   nixpkgs.config.allowUnfree = true;
-
-  system.stateVersion = "25.05"; 
+  system.stateVersion = "25.05";
   programs.niri.enable = true;
+
+  # Audio
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -63,7 +55,7 @@
     jack.enable = true;
     wireplumber.enable = true;
   };
-  
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   gtk.iconTheme = {
@@ -71,46 +63,43 @@
     package = pkgs.papirus-icon-theme;
   };
 
+  # Spicetify
   programs.spicetify = {
     enable = true;
     enabledExtensions = [ spicetify-nix.extensions.marketplace ];
   };
-# ╞═══════════════════════════════╡ Bluetooth ╞═════════════════════════════════╡
 
+  # Bluetooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+
+  # Fonts
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     dejavu_fonts
   ];
 
-# ╞═══════════════════════════════╡ Virt-Manager ╞═════════════════════════════════╡
-
+  # Virtualisation
   virtualisation.vmware.guest.enable = true;
-
   programs.virt-manager.enable = true;
-  
   virtualisation.libvirtd.enable = true;
-  virtualisation.virtualbox.host.enable = false;  
-
+  virtualisation.virtualbox.host.enable = false;
   users.groups.libvirtd.members = ["elia"];
-
   virtualisation.spiceUSBRedirection.enable = true;
   services.spice-vdagentd.enable = true;
 
-# ╞═══════════════════════════════╡ Docker ╞═════════════════════════════════╡
-
+  # Docker
   virtualisation.docker = {
-  enable = true;
-  daemon.settings = {
-    experimental = true;
-    default-address-pools = [
-      {
-        base = "172.30.0.0/16";
-        size = 24;
-      }
-    ];
-  };
+    enable = true;
+    daemon.settings = {
+      experimental = true;
+      default-address-pools = [
+        {
+          base = "172.30.0.0/16";
+          size = 24;
+        }
+      ];
+    };
   };
 }
-# test
+
