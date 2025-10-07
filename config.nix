@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
-
+let
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
+in
 {
   imports =
     [ 
@@ -63,7 +65,10 @@
 
   programs.spicetify = {
     enable = true;
-    enabledExtensions = [ config.programs.spicetify.extensions.marketplace ];
+    enabledExtensions = with spicePkgs.extensions; [
+       adblockify
+       marketplace 
+    ];
   };
 
 # ╞═══════════════════════════════╡ Bluetooth ╞═════════════════════════════════╡
