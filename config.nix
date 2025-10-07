@@ -3,11 +3,8 @@
   imports =
     [ 
       ./hardware/hardware.nix
+      ./configs/limine.nix
     ];
-  modules = [
-    ./configs/limine.nix
-    
-  ];
 
 # ╞═══════════════════════════════╡ Bootloader ╞═════════════════════════════════╡
 
