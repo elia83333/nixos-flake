@@ -1,7 +1,7 @@
 { ... }:
 {
   boot.loader.limine.enable = true;
-  boot.loader.limine.style.wallpapers = [ "~/Pictures/limine.jpg" ];
+  boot.loader.limine.style.wallpapers = [ "$HOME/Pictures/limine.jpg" ];
   boot.loader.limine.style.wallpaperStyle = "centered";
   boot.loader.limine.style.backdrop = "1E1E2E";
   boot.loader.limine.style.interface.branding = "if ts is not booting im gonna cry, please boot";
