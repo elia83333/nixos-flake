@@ -7,13 +7,14 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, spicetify-nix, ... }: let
+  outputs = { self, nixpkgs, home-manager, spicetify-nix, ... }:
+  let
     system = "x86_64-linux";
-  in {
+  in
+  {
     nixosConfigurations.iusenixbtw = nixpkgs.lib.nixosSystem {
       inherit system;
 
-      # Define pkgs first
       pkgs = import nixpkgs {
         inherit system;
         config = {
@@ -22,17 +23,11 @@
         };
       };
 
-      # Modules
       modules = [
         ./packages.nix
         ./config.nix
         spicetify-nix.nixosModules.default
       ];
-
-      # Pass spicetify-nix as an argument to your config
-      configurationArgs = {
-        spicetify-nix = spicetify-nix;
-      };
     };
 
     homeConfigurations.elia = home-manager.lib.homeManagerConfiguration {

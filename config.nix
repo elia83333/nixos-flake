@@ -1,4 +1,4 @@
-{ config, pkgs, spicetify-nix, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [ ./hardware/hardware.nix ];
@@ -39,7 +39,8 @@
   programs.niri.enable = true;
   programs.spicetify = {
     enable = true;
-    enabledExtensions = [ spicetify-nix.extensions.marketplace ];
+    # Use the extensions exposed by spicetify-nix module
+    enabledExtensions = [ config.spicetify.extensions.marketplace ];
   };
   programs.virt-manager.enable = true;
 
