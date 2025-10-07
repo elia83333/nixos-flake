@@ -1,4 +1,4 @@
-{ config, pkgs, ... , spicetify-nix ? null }:
+{ config, pkgs, ... }:
 
 {
   programs.spicetify = {
