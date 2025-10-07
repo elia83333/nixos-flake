@@ -7,7 +7,7 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }: let
+  outputs = { self, nixpkgs, home-manager, spicetify-nix, ... }: let
     system = "x86_64-linux";
   in {
     nixosConfigurations.iusenixbtw = nixpkgs.lib.nixosSystem {
@@ -20,7 +20,7 @@
       modules = [
         ./config.nix
         ./packages.nix
-        inputs.spicetify-nix.nixosModules.default
+        spicetify-nix.nixosModules.default
       ];
     };
 
@@ -31,6 +31,7 @@
       };
       modules = [
         ./home/default.nix
+        spicetify-nix.homeManagerModules.default
       ];
     };
   };
