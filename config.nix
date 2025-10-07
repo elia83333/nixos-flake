@@ -4,6 +4,7 @@
     [ 
       ./hardware/hardware.nix
       ./configs/limine.nix
+      ./configs/spicetify.nix
     ];
 
 # ╞═══════════════════════════════╡ Bootloader ╞═════════════════════════════════╡
