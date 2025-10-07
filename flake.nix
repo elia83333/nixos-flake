@@ -12,6 +12,8 @@
   in {
     nixosConfigurations.iusenixbtw = nixpkgs.lib.nixosSystem {
       inherit system;
+
+      # Define pkgs first
       pkgs = import nixpkgs {
         inherit system;
         config = {
@@ -19,11 +21,18 @@
           allowBroken = true;
         };
       };
+
+      # Modules
       modules = [
         ./packages.nix
-        (import ./config.nix { inherit pkgs config spicetify-nix; })
+        ./config.nix
         spicetify-nix.nixosModules.default
       ];
+
+      # Pass spicetify-nix as an argument to your config
+      configurationArgs = {
+        spicetify-nix = spicetify-nix;
+      };
     };
 
     homeConfigurations.elia = home-manager.lib.homeManagerConfiguration {
