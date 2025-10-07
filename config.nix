@@ -63,7 +63,7 @@
 
   programs.spicetify = {
     enable = true;
-    enabledExtensions = [ config.spicetify.extensions.marketplace ];
+    enabledExtensions = [ config.programs.spicetify.extensions.marketplace ];
   };
 
 # ╞═══════════════════════════════╡ Bluetooth ╞═════════════════════════════════╡
