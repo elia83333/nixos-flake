@@ -3,14 +3,11 @@
   imports =
     [ 
       ./hardware/hardware.nix
-      ./configs/limine.nix
-      ./configs/spicetify.nix
     ];
 
 # ╞═══════════════════════════════╡ Bootloader ╞═════════════════════════════════╡
 
-  boot.loader.systemd-boot.enable = false; # see ./configs/limine.nix
-
+  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelModules = ["kvm-amd" ]; 
 
@@ -54,9 +51,10 @@
   };
 
 # ╞═══════════════════════════════╡ NixOS System ╞═════════════════════════════════╡
-  
-  system.stateVersion = "25.05";
 
+  nixpkgs.config.allowUnfree = true;
+
+  system.stateVersion = "25.05"; 
   programs.niri.enable = true;
   services.pipewire = {
     enable = true;
@@ -68,17 +66,15 @@
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  services.displayManager.ly.enable = true;
-  
-  xdg.portal.enable = true;
-  
-  xdg.portal.extraPortals = [
-    pkgs.xdg-desktop-portal-wlr
-    pkgs.xdg-desktop-portal-gtk
-  ];
+  gtk.iconTheme = {
+    name = "Papirus";
+    package = pkgs.papirus-icon-theme;
+  };
 
-  xdg.icons.enable = true;
-
+  programs.spicetify = {
+    enable = true;
+    enabledExtensions = [ spicetify-nix.extensions.marketplace ];
+  };
 # ╞═══════════════════════════════╡ Bluetooth ╞═════════════════════════════════╡
 
   hardware.bluetooth.enable = true;
@@ -91,7 +87,6 @@
 # ╞═══════════════════════════════╡ Virt-Manager ╞═════════════════════════════════╡
 
   virtualisation.vmware.guest.enable = true;
-  virtualisation.vmware.host.enable = true;
 
   programs.virt-manager.enable = true;
   
@@ -118,3 +113,4 @@
   };
   };
 }
+# test
