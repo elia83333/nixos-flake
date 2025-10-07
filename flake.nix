@@ -14,12 +14,14 @@
       inherit system;
       pkgs = import nixpkgs {
         inherit system;
-        config.allowUnfree = true;
-        config.allowBroken = true;
+        config = {
+          allowUnfree = true;
+          allowBroken = true;
+        };
       };
       modules = [
-        ./config.nix
         ./packages.nix
+        (import ./config.nix { inherit pkgs config spicetify-nix; })
         spicetify-nix.nixosModules.default
       ];
     };
@@ -27,7 +29,7 @@
     homeConfigurations.elia = home-manager.lib.homeManagerConfiguration {
       pkgs = import nixpkgs {
         inherit system;
-        config.allowUnfree = true;
+        config = { allowUnfree = true; };
       };
       modules = [
         ./home/default.nix

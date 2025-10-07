@@ -1,16 +1,14 @@
 { config, pkgs, spicetify-nix, ... }:
 
 {
-  imports = [
-    ./hardware/hardware.nix
-  ];
+  imports = [ ./hardware/hardware.nix ];
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelModules = ["kvm-amd"];
 
-  # Network & Hostname
+  # Networking
   networking.hostName = "iusenixbtw";
   networking.networkmanager.enable = true;
 
@@ -28,24 +26,22 @@
     LC_TELEPHONE = "it_IT.UTF-8";
     LC_TIME = "it_IT.UTF-8";
   };
-  services.xserver.xkb = {
-    layout = "it";
-    variant = "winkeys";
-  };
+  services.xserver.xkb = { layout = "it"; variant = "winkeys"; };
   console.keyMap = "it2";
 
   # Users
   users.users.elia = {
     isNormalUser = true;
-    description = "elia";
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" "qemu-libvirtd" "kvm" ];
-    packages = with pkgs; [];
   };
 
-  # NixOS System
-  nixpkgs.config.allowUnfree = true;
-  system.stateVersion = "25.05";
+  # Programs
   programs.niri.enable = true;
+  programs.spicetify = {
+    enable = true;
+    enabledExtensions = [ spicetify-nix.extensions.marketplace ];
+  };
+  programs.virt-manager.enable = true;
 
   # Audio
   services.pipewire = {
@@ -56,27 +52,15 @@
     wireplumber.enable = true;
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # Spicetify
-  programs.spicetify = {
-    enable = true;
-    enabledExtensions = [ spicetify-nix.extensions.marketplace ];
-  };
-
   # Bluetooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
   # Fonts
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-    dejavu_fonts
-  ];
+  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono dejavu_fonts ];
 
   # Virtualisation
   virtualisation.vmware.guest.enable = true;
-  programs.virt-manager.enable = true;
   virtualisation.libvirtd.enable = true;
   virtualisation.virtualbox.host.enable = false;
   users.groups.libvirtd.members = ["elia"];
@@ -88,13 +72,14 @@
     enable = true;
     daemon.settings = {
       experimental = true;
-      default-address-pools = [
-        {
-          base = "172.30.0.0/16";
-          size = 24;
-        }
-      ];
+      default-address-pools = [{ base = "172.30.0.0/16"; size = 24; }];
     };
   };
+
+  # GTK
+  gtk.iconTheme = { name = "Papirus"; package = pkgs.papirus-icon-theme; };
+
+  # Nix
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
 
