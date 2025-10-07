@@ -2,7 +2,7 @@
 {
   programs.spicetify = {
     enable = true;
-    enabledExtensions = [ "marketplace.js" ];
+    enabledExtensions = [ spicetify-nix.extensions.marketplace ];
   };
 
 }
