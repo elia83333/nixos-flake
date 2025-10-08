@@ -9,6 +9,11 @@ window#waybar {
     background: alpha(@crust, 0.99999);  /* semi-transparent bar */
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
 }
+
+#pulseaudio{
+	background-color: @crust;
+}
+
 tooltip {
     background:@base;
     color: @subtext1;

@@ -7,9 +7,27 @@
         "margin-bottom": 0,
         "reload_style_on_change": true,
         "modules-left": ["custom/notification","clock"],
-        "modules-center": ["cpu", "memory", "temperature"],
-        "modules-right": ["group/expand","bluetooth","network", "custom/endpoint1","battery"],
-
+        "modules-center": ["niri/workspaces", "cpu", "memory", "temperature"],
+        "modules-right": ["group/expand","bluetooth","network", "custom/endpoint1", "pulseaudio", "battery"],
+	
+	"pulseaudio": {
+	    "format": "{volume}% {icon}",
+	    "format-bluetooth": "{volume}% {icon}",
+	    "format-muted": "",
+	    "format-icons": {
+		"headphone": "",
+		"hands-free": "",
+		"headset": "",
+		"phone": "",
+		"phone-muted": "",
+		"portable": "",
+		"car": "",
+		"default": ["", ""]
+	    },
+	    "scroll-step": 1,
+	    "ignored-sinks": ["Easy Effects Sink"]
+	}
+	}
         "custom/notification": {
             "tooltip": false,
             "format": "󰀻",
